@@ -1,2 +1,10 @@
+searcher:
+  class: Pg
+  config:
+    # See http://deveiate.org/code/pg/PG/Connection.html#method-c-new
+    host: ""
+    port: 1000
+    database: "test"
+
 brand:
   name: "有馬"

@@ -1,6 +1,7 @@
 # Created by https://www.gitignore.io
 
 config/config.yml
+vendor
 
 ### Ruby ###
 *.gem

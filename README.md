@@ -1,5 +1,7 @@
 # 有馬
 
+[![Build Status](https://travis-ci.org/hisaichi5518/arima.svg?branch=master)](https://travis-ci.org/hisaichi5518/arima)
+
 有馬は、行動ログを閲覧するためのツールです。
 
 有馬が担当するのは、解析等を行うための行動ログではなく、カスタマーサポートで使用するための行動ログです。

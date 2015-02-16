@@ -2,13 +2,13 @@ require 'spec_helper'
 
 describe Arima::Searcher do
   it "extend Arima::Schema" do
-    expect(Arima::Output).to be_kind_of(Arima::Schema)
+    expect(Arima::Searcher).to be_kind_of(Arima::Schema)
   end
   it "set default_schema" do
-    expect(Arima::Output.default_schema.size).to eq 4
+    expect(Arima::Searcher.default_schema.size).to eq 5
   end
   it "set schema_name" do
-    expect(Arima::Output.schema_name).to eq :output_schema
+    expect(Arima::Searcher.schema_name).to eq :search_schema
   end
 
   describe ".search" do

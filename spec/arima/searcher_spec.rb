@@ -22,4 +22,70 @@ describe Arima::Searcher do
       end
     end
   end
+
+  describe ".raw_schema" do
+    context "with config" do
+      let :search_schema do
+        [{
+          "name"          => "column.name",
+          "jp"            => "column.jp",
+          "type"          => "column.type",
+          "placeholder"   => "column.placeholder",
+          "hidden"        => true,
+          "default_value" => "column.default_value",
+        }]
+      end
+
+      before do
+        schema = search_schema
+        allow(Arima::App).to receive(:search_schema) { schema }
+      end
+
+      it 'returns array' do
+        expect(Arima::Searcher.raw_schema).to eq search_schema
+      end
+    end
+
+    context "without config" do
+      it 'returns DEFAULT_SEARCH_SCHEMA' do
+        pending "not implemented ;)"
+        this_should_not_get_executed
+      end
+    end
+  end
+
+  describe ".schema" do
+    context "with config" do
+      let :search_schema do
+        [{
+          "name"          => "column.name",
+          "jp"            => "column.jp",
+          "type"          => "column.type",
+          "placeholder"   => "column.placeholder",
+          "hidden"        => true,
+          "default_value" => "column.default_value",
+        }]
+      end
+
+      before do
+        schema = search_schema
+        allow(Arima::App).to receive(:search_schema) { schema }
+      end
+
+      it "returns one" do
+        expect(Arima::Searcher.schema.size).to eq 1
+      end
+
+      it 'returns array with Arima::Column object' do
+        expect(Arima::Searcher.schema[0]).to be_kind_of(Arima::Column)
+      end
+    end
+
+    context "without config" do
+      it 'returns array with Arima::Column object' do
+        pending "not implemented ;)"
+        this_should_not_get_executed
+      end
+    end
+  end
 end

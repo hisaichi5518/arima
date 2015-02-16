@@ -8,3 +8,24 @@ searcher:
 
 brand:
   name: "有馬"
+
+search_schema:
+  - name: uid
+    type: text
+    placeholder: 1234567
+    jp: "ユーザーid"
+  - name: type
+    type: text
+    placeholder: user.search
+    jp: "行動タイプ"
+  - name: start_at
+    type: datetime-local
+    jp: "開始日時(必須)"
+  - name: end_at
+    type: datetime-local
+    jp: "終了日時(必須)"
+  - name: page
+    type: text
+    placeholder: 1
+    jp: "ページ番号"
+    default_value: 1

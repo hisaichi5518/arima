@@ -47,9 +47,8 @@ describe Arima::Searcher do
     end
 
     context "without config" do
-      it 'returns DEFAULT_SEARCH_SCHEMA' do
-        pending "not implemented ;)"
-        this_should_not_get_executed
+      it 'returns DEFAULT_SCHEMA' do
+        expect(Arima::Searcher.raw_schema).to eq Arima::Searcher::DEFAULT_SCHEMA
       end
     end
   end
@@ -82,9 +81,12 @@ describe Arima::Searcher do
     end
 
     context "without config" do
+      it "returns Arima::Searcher::DEFAULT_SCHEMA.size" do
+        expect(Arima::Searcher.schema.size).to eq Arima::Searcher::DEFAULT_SCHEMA.size
+      end
+
       it 'returns array with Arima::Column object' do
-        pending "not implemented ;)"
-        this_should_not_get_executed
+        expect(Arima::Searcher.schema.all? {|v| v.kind_of?(Arima::Column) }).to eq true
       end
     end
   end

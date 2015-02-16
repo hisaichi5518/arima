@@ -29,3 +29,14 @@ search_schema:
     placeholder: 1
     jp: "ページ番号"
     default_value: 1
+
+output_schema:
+  - name: time
+    jp: "行動時間"
+  - name: uid
+    jp: "ユーザーid"
+  - name: type
+    jp: "行動タイプ"
+  - name: other
+    jp: "その他"
+    hidden: true

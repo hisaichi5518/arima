@@ -43,7 +43,8 @@ module Arima::Searcher::Pg
     end
 
     def build_opts(params)
-      # FIXME: ページ最大数の指定
+      # TODO: ページ最大数の指定
+      # TODO: 100を設定にもっていく
       page  = (params["page"] || 1).to_i
       limit = 100 * page
       {order_by: "time", limit: limit, offset: limit - 100}

@@ -17,9 +17,9 @@
     <% Arima::Output.schema.each do |column| %>
        <td>
          <% if column.hidden? %>
-           TODO: 隠すやつ
+           <%= erb :result_hidden_column, :locals => {column: column} %>
          <% else %>
-           TODO: そのまま見せるやつ
+           <%= erb :result_not_hidden_column, :locals => {column: column} %>
          <% end %>
        </td>
     <% end %>

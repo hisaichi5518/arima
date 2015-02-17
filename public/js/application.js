@@ -21,6 +21,30 @@ $(function() {
   });
 });
 
+// その他を見せたり隠したりする
+$(function() {
+  $("#result-body").on('click', ".other-toggle", function(e) {
+    e.preventDefault();
+
+    var $target = $(e.target);
+    var id = $target.data('id');
+    var $dialog = $("#other-" + id + "-dialog");
+
+    toggleLink(id, $dialog.is(':hidden'));
+
+    $dialog.toggle();
+  });
+
+  function toggleLink(id, currentIsHidden) {
+    var $target = $("#other-" + id + "-link");
+    var linkName = "見る";
+    if (currentIsHidden) {
+      linkName = "隠す";
+    }
+    $target.html(linkName);
+  }
+});
+
 // 「次へ」「前へ」を実装
 $(function() {
   $(".next").click(function(e) {

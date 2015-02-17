@@ -31,6 +31,7 @@ $(function() {
     var $dialog = $("#other-" + id + "-dialog");
 
     toggleLink(id, $dialog.is(':hidden'));
+    toggleIcon(id, $dialog.is(':hidden'));
 
     $dialog.toggle();
   });
@@ -42,6 +43,22 @@ $(function() {
       linkName = "隠す";
     }
     $target.html(linkName);
+  }
+
+  function toggleIcon(id, currentIsHidden) {
+    var $target = $("#other-" + id + "-icon");
+
+    var hideIcon = "glyphicon-remove-circle";
+    var showIcon = "glyphicon-check";
+
+    var removeClass = hideIcon;
+    var addClass    = showIcon;
+    if (currentIsHidden) {
+      removeClass = showIcon;
+      addClass    = hideIcon;
+    }
+    $target.removeClass(removeClass);
+    $target.addClass(addClass);
   }
 });
 

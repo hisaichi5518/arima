@@ -13,7 +13,12 @@ $(function() {
       type: $target.attr('method'),
       data: $target.serialize()
     }).done(function(data) {
-      $('#tmpl_info').tmpl(data["logs"]).appendTo('#result-body');
+      var logs = $.map(data["logs"], function(log) {
+        log["other"] = JSON.stringify(log["other"] || {}, null, 2);
+        return log;
+      });
+
+      $('#tmpl_info').tmpl(logs).appendTo('#result-body');
       removeDisabledFromSubmitButton();
     }).fail(function(jqXHR, status) {
       removeDisabledFromSubmitButton();

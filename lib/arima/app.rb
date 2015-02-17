@@ -16,7 +16,8 @@ module Arima
     end
 
     get '/search' do
-      json logs: []
+      logs = Arima::Searcher.search(params)
+      json logs: logs
     end
   end
 end

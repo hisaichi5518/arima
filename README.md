@@ -12,7 +12,6 @@
 
 ## TODO
 
-- [ ] View
 - [ ] 検索API
 - [ ] 使い方
 - [ ] Searcherの書き方

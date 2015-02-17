@@ -14,6 +14,14 @@
 
 <script id="tmpl_info" type="text/x-jquery-tmpl">
   <tr>
-    TODO: 検索結果テンプレ
+    <% Arima::Output.schema.each do |column| %>
+       <td>
+         <% if column.hidden? %>
+           TODO: 隠すやつ
+         <% else %>
+           TODO: そのまま見せるやつ
+         <% end %>
+       </td>
+    <% end %>
   </tr>
 </script>

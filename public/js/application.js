@@ -5,6 +5,7 @@ $(function() {
   $("#searcher").submit(function(e) {
     e.preventDefault();
     $("#result-body").empty();
+    disableSubmitButton();
 
     var $target = $(e.target);
     $.ajax({
@@ -12,13 +13,21 @@ $(function() {
       type: $target.attr('method'),
       data: $target.serialize()
     }).done(function(data) {
-        console.log(data);
       $('#tmpl_info').tmpl(data["logs"]).appendTo('#result-body');
+      removeDisabledFromSubmitButton();
     }).fail(function(jqXHR, status) {
+      removeDisabledFromSubmitButton();
     });
 
     return false;
   });
+
+  function disableSubmitButton(){
+    $("#searcher-submit-btn").prop("disabled", true);
+  }
+  function removeDisabledFromSubmitButton(){
+    $("#searcher-submit-btn").prop("disabled", false);
+  }
 });
 
 // その他を見せたり隠したりする

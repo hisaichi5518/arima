@@ -2,7 +2,9 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      TODO: からむ
+      <% Arima::Output.schema.each do |column| %>
+        <th><%= column.label_name %></th>
+      <% end %>
     </tr>
   </thead>
   <tbody id="result-body">

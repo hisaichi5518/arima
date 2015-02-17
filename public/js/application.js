@@ -4,8 +4,10 @@
 $(function() {
   $("#searcher").submit(function(e) {
     e.preventDefault();
+    hideAllAlert();
     $("#result-body").empty();
     disableSubmitButton();
+    showInfoAlert();
 
     var $target = $(e.target);
     $.ajax({
@@ -20,8 +22,11 @@ $(function() {
 
       $('#tmpl_info').tmpl(logs).appendTo('#result-body');
       removeDisabledFromSubmitButton();
+      hideAllAlert();
     }).fail(function(jqXHR, status) {
+      showDangerAlert();
       removeDisabledFromSubmitButton();
+      hideInfoAlert();
     });
 
     return false;
@@ -30,8 +35,28 @@ $(function() {
   function disableSubmitButton(){
     $("#searcher-submit-btn").prop("disabled", true);
   }
+
   function removeDisabledFromSubmitButton(){
     $("#searcher-submit-btn").prop("disabled", false);
+  }
+
+  function hideAllAlert() {
+    $(".alert").hide();
+  }
+
+  function hideInfoAlert() {
+    $("#info-alert").hide();
+  }
+
+  function showInfoAlert() {
+    var message = "検索中です。";
+    $("#info_message").html(message);
+    $("#info-alert").show();
+  }
+  function showDangerAlert() {
+    var message = "エラーが起きました。少し時間をあけて再度実行してください";
+    $("#error_message").html(message);
+    $("#danger-alert").show();
   }
 });
 

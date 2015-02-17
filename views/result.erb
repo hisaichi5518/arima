@@ -1,0 +1,27 @@
+<%= erb :pager %>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <% Arima::Output.schema.each do |column| %>
+        <th><%= column.label_name %></th>
+      <% end %>
+    </tr>
+  </thead>
+  <tbody id="result-body">
+  </tbody>
+</table>
+<%= erb :pager %>
+
+<script id="tmpl_info" type="text/x-jquery-tmpl">
+  <tr>
+    <% Arima::Output.schema.each do |column| %>
+       <td>
+         <% if column.hidden? %>
+           <%= erb :result_hidden_column, :locals => {column: column} %>
+         <% else %>
+           <%= erb :result_not_hidden_column, :locals => {column: column} %>
+         <% end %>
+       </td>
+    <% end %>
+  </tr>
+</script>

@@ -12,7 +12,7 @@ module Arima
     config_file 'config/config.yml'
 
     get '/' do
-      json logs: []
+      erb :index
     end
 
     get '/search' do

@@ -20,3 +20,31 @@ $(function() {
     return false;
   });
 });
+
+// 「次へ」「前へ」を実装
+$(function() {
+  $(".next").click(function(e) {
+    e.preventDefault();
+
+    var $page = $("#page");
+    var pageCount = $page.val() || 1;
+    var nextPage = parseInt(pageCount, 10) + 1;
+
+    $page.val(nextPage);
+    $("#searcher").submit();
+  });
+
+  $(".previous").click(function(e) {
+    e.preventDefault();
+
+    var $page = $("#page");
+    var pageCount = $page.val() || 1;
+    var nextPage = parseInt(pageCount, 10) - 1;
+    if (nextPage <= 0) {
+      return;
+    }
+
+    $page.val(nextPage);
+    $("#searcher").submit();
+  });
+});

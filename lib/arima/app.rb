@@ -16,7 +16,17 @@ module Arima
     end
 
     get '/search' do
-      json logs: []
+      logs = Arima::Searcher.search(log_params)
+      json logs: logs
+    end
+
+    def log_params
+      columns = Arima::Searcher.schema.select do |column|
+        param = params[column.name]
+        !(param.nil? or param.empty?)
+      end
+
+      columns.map {|c| [c.name, params[c.name]] }.to_h
     end
   end
 end

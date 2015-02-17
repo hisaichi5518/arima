@@ -1,10 +1,12 @@
 searcher:
   class: Pg
-  config:
+  connection:
     # See http://deveiate.org/code/pg/PG/Connection.html#method-c-new
-    host: ""
-    port: 1000
-    database: "test"
+    host: "hisaichi5518.redshift.amazonaws.com"
+    port: 5439
+    dbname: "arima"
+    user: "arima"
+    password: "password"
 
 brand:
   name: "有馬"

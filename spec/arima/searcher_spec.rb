@@ -18,7 +18,7 @@ describe Arima::Searcher do
       end
 
       it 'returns array' do
-        expect(Arima::Searcher.search({})).to eq ["this is a test"]
+        expect(Arima::Searcher.search({}).class).to eq Array
       end
     end
 

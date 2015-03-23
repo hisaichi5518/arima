@@ -1,5 +1,6 @@
 require 'sinatra/json'
 require "sinatra/config_file"
+require "sinatra/reloader"
 require 'pathname'
 
 module Arima
@@ -10,6 +11,14 @@ module Arima
 
     register Sinatra::ConfigFile
     config_file 'config/config.yml'
+
+    configure :development do
+      register Sinatra::Reloader
+      also_reload 'lib/*.rb'
+      also_reload 'lib/*/*.rb'
+      also_reload 'lib/*/*/*.rb'
+      also_reload 'config/config.yml'
+    end
 
     get '/' do
       erb :index
